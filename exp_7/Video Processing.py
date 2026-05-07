@@ -5,26 +5,35 @@ cap = cv2.VideoCapture('video.mp4')
 
 frames = []
 count = 0
+max_frames = 12 # Number of frames you want
 
-while cap.isOpened() and count < 3:
+while cap.isOpened() and count < max_frames:
     ret, frame = cap.read()
+
     if not ret:
         break
+
+    # Convert BGR to RGB
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
     frames.append(frame_rgb)
     count += 1
 
 cap.release()
 
-# Plot frames
-plt.figure(figsize=(10,4))
+# Display frames
+cols = 4
+rows = (len(frames) + cols - 1) // cols
+
+plt.figure(figsize=(15, 8))
 
 for i in range(len(frames)):
-    plt.subplot(1,3,i+1)
+    plt.subplot(rows, cols, i + 1)
     plt.imshow(frames[i])
     plt.title(f"Frame {i+1}")
     plt.axis('off')
 
+plt.tight_layout()
 plt.show()
 
-print("Frames displayed (Normal speed concept)")
+print(f"{len(frames)} frames displayed")
