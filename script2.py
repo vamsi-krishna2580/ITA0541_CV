@@ -5,7 +5,7 @@ import shutil
 root_dir = os.getcwd()
 
 # Loop from exp_8 to exp_15
-for exp_no in range(8, 16):
+for exp_no in range(16, 31):
     folder_name = f"exp_{exp_no}"
     
     source_path = os.path.join(root_dir, folder_name, "Figure_1.png")
