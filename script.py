@@ -1,7 +1,7 @@
 import os
 
 # Create folders exp_7 to exp_15
-for i in range(7, 16):
+for i in range(21, 30):
     folder_name = f"exp_{i}"
     os.makedirs(folder_name, exist_ok=True)
 
